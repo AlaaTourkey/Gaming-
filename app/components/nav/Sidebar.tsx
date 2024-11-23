@@ -1,10 +1,9 @@
-import React from 'react'
-import { BiCategory } from 'react-icons/bi';
-import { BsFillPeopleFill } from 'react-icons/bs';
-import { FaHeart, FaHome } from 'react-icons/fa';
-import Navlink from './Navlink';
-import { CgGames } from 'react-icons/cg';
-
+import React from "react";
+import { BiCategory } from "react-icons/bi";
+import { BsFillPeopleFill } from "react-icons/bs";
+import { FaHeart, FaHome } from "react-icons/fa";
+import { CgGames } from "react-icons/cg";
+import Navlink from "./Navlink";
 
 export const NAV_LINKS = [
   {
@@ -24,7 +23,7 @@ export const NAV_LINKS = [
   },
   {
     link: "/wishlist",
-    label: "WIshlist",
+    label: "Wishlist",
     icon: <FaHeart />,
   },
   {
@@ -33,14 +32,18 @@ export const NAV_LINKS = [
     icon: <BsFillPeopleFill />,
   },
 ];
+
 function Sidebar() {
   return (
-    <div className='bg-teal-800 flex flex-col gap-3 col-span-2'>
+    <div className="bg-teal-800 flex flex-col gap-3 col-span-2 p-4">
       {NAV_LINKS.map((navlink) => (
-        <Navlink navlink={navlink } label={navlink.label} icon={navlink.icon} />
+        <Navlink
+          key={navlink.link} // Use `link` as a unique key since URLs are unique.
+          navlink={navlink}
+        />
       ))}
     </div>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;

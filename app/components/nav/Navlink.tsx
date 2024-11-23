@@ -1,14 +1,20 @@
-import Link from 'next/link'
-import React from 'react'
+import React from "react";
+import Link from "next/link";
 
-function Navlink({navlink}:{navlink:{link:string, label:string, icon:React.ReactElement}}) {
-  const {label, icon} = navlink
-  
+const Navlink = ({
+  navlink,
+}: {
+  navlink: { link: string; label: string; icon: JSX.Element };
+}) => {
   return (
-    <Link href={navlink.link} className='flex gap-2 items-center p-2 hover:bg-slate-600 rounded-md'>
-      <p>{React.cloneElement(icon, {className: "w-6 h-6"})} </p> <p>{label}</p>
+    <Link
+      href={navlink.link}
+      className="flex items-center gap-3 text-white p-2 rounded hover:bg-teal-700 transition"
+    >
+      {navlink.icon}
+      <span>{navlink.label}</span>
     </Link>
-  )
-}
+  );
+};
 
-export default Navlink
+export default Navlink;
